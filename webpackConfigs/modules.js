@@ -37,6 +37,19 @@ module.exports = function () {
                 },
                 {
                     test: /\.(js|jsx|ts|tsx)$/,
+                    enforce: 'pre',
+                    exclude: /node_modules/,
+                    use: [
+                        {
+                            loader: 'tslint-loader',
+                            options: {
+                                configFile: './tslint.json'
+                            }
+                        }
+                    ]
+                },
+                {
+                    test: /\.(js|jsx|ts|tsx)$/,
                     exclude: /node_modules/,
                     use: {
                         loader: 'babel-loader',
