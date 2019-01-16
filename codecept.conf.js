@@ -1,6 +1,6 @@
 exports.config = {
-  tests: './e2e/tests/*.test.js',
-  output: './e2e/output',
+  tests: './tests/acceptance/test/*.test.js',
+  output: './tests/acceptance/output',
   helpers: {
     Nightmare: {
       url: 'http://localhost',
@@ -8,7 +8,7 @@ exports.config = {
     }
   },
   include: {
-    I: './e2e/steps.js'
+    I: './tests/acceptance/steps.js'
   },
   bootstrap: null,
   mocha: {},
