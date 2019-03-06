@@ -3,7 +3,7 @@ module.exports = function () {
 
     return ({
         entry: {
-            index: `${PATH.entry}/index.tsx`
+            index: ["@babel/polyfill", `${PATH.entry}/index.tsx`]
         },
         output: {
             path: isDevelopment ? PATH.development : PATH.production,

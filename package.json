@@ -5,30 +5,40 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js --mode development",
-    "development": "webpack --config ./webpack.config.js --mode development",
+    "development": "webpack --config ./webpack.config.js --display-modules --mode development",
     "production": "webpack --config ./webpack.config.js --mode production",
-    "e2e": "./node_modules/.bin/codeceptjs run --steps",
-    "lint": "./node_modules/.bin/tslint -c tslint.json 'src/**/*.tsx'",
-    "format": "prettier --write --config ./prettierrc './src/**/*.{ts,tsx}'",
-    "unit": "./node_modules/.bin/mocha -r ts-node/register tests/unit/**/*.test.tsx tests/unit/**/*.test.ts"
+    "lint": "./node_modules/.bin/tslint -c tslint.json 'src/**/*.ts'",
+    "format": "prettier --write --config ./prettierrc './src/**/*.ts'",
+    "formatTest": "prettier --write --config ./prettierrc './tests/**/*.ts'",
+    "nyc": "nyc npm run test",
+    "coverage": "npm run nyc && ./node_modules/.bin/nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "test": "./node_modules/.bin/mocha -r jsdom-global/register -r ts-node/register tests/**/*.test.ts tests/**/*.test.ts"
   },
   "dependencies": {
+    "@babel/plugin-proposal-decorators": "^7.3.0",
+    "@babel/polyfill": "^7.2.5",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-redux": "^6.0.0",
     "redux": "^4.0.1",
     "redux-promise": "^0.6.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "codecov": "^3.1.0",
+    "jsdom": "^13.2.0",
+    "jsdom-global": "^3.0.2",
+    "node-sass": "^4.11.0",
+    "ts-node": "^8.0.2"
   },
   "devDependencies": {
-    "@types/enzyme": "^3.1.15",
-    "@types/enzyme-adapter-react-16": "^1.0.3",
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.1.0",
     "@types/chai": "^4.1.7",
+    "@types/enzyme": "^3.1.15",
+    "@types/enzyme-adapter-react-16": "^1.0.3",
     "@types/mocha": "^5.2.5",
     "@types/node": "^10.12.18",
     "@types/react-dom": "^16.0.11",
@@ -62,7 +72,20 @@
     "url-loader": "^1.1.2",
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1",
-    "webpack-dev-server": "^3.1.14"
+    "webpack-dev-server": "^3.1.14",
+    "nyc": "^13.2.0"
+  },
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "exclude:": [
+      "**/*.d.ts",
+      "webpack.config.js",
+      "codecept.conf.js",
+      "tests"
+    ],
+    "report-dir": "./tests/"
   },
   "author": "",
   "license": "ISC"

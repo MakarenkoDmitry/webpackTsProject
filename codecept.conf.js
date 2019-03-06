@@ -4,7 +4,8 @@ exports.config = {
   helpers: {
     Nightmare: {
       url: 'http://localhost',
-      show: false
+      show: true,
+      typeInterval: 1
     }
   },
   include: {
@@ -13,4 +14,4 @@ exports.config = {
   bootstrap: null,
   mocha: {},
   name: 'projectx.loc'
-}
+};

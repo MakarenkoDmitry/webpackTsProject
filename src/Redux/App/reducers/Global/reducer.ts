@@ -1,10 +1,10 @@
-import { SET_LOGIN } from "../../action/index";
+import { SET_USER } from "../../action/index";
 const initialState = {
     user: {}
 };
 export function reducer(state: any = initialState, action: any) {
     switch (action.type) {
-        case SET_LOGIN:
+        case SET_USER:
             return {
                 ...state,
                 ...{

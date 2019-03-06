@@ -59,6 +59,10 @@ module.exports = function () {
                                 "@babel/preset-react",
                                 "@babel/preset-typescript"
                             ],
+                            plugins: [
+                                "transform-class-properties",
+                                ["@babel/plugin-proposal-decorators", { "decoratorsBeforeExport": true }]
+                            ]
                         }
                     }
                 }

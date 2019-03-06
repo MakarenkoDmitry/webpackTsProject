@@ -3,6 +3,7 @@ module.exports = function () {
         devServer: {
             contentBase: './dist',
             hot: true,
+            historyApiFallback: true,
             port: 8000
         }
     });

@@ -3,12 +3,25 @@
     "allowSyntheticDefaultImports": true,
     "jsx": "react",
     "module": "commonjs",
-    "noImplicitAny": true,
     "outDir": "./build/",
+    "noImplicitAny": false,
+    "no-shadowed-variable": [
+      true,
+      {
+        "class": true,
+        "enum": true,
+        "function": false,
+        "interface": false,
+        "namespace": true,
+        "typeAlias": false,
+        "typeParameter": false
+      }
+    ],
     "preserveConstEnums": true,
     "removeComments": true,
+    "resolveJsonModule": true,
     "sourceMap": true,
-    "target": "es5"
+    "target": "es2015"
   },
   "include": [
     "./src/**/**/*"
