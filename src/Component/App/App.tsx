@@ -1,17 +1,25 @@
-import React, { Component } from "react";
+import * as React from "react";
 import { Provider } from "react-redux";
 import { store } from "../../Redux/App/store";
 
-import { AppProps, AppPropTypes } from "./";
+import { AppProps, AppPropTypes, AppState } from "./";
 
-export class App extends Component<AppProps> {
+export class App extends React.Component<AppProps, AppState> {
     public static readonly propTypes = AppPropTypes;
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            version: 1
+        };
+    }
     public render() {
         const { title } = this.props;
+        const { version } = this.state;
         return (
             <Provider store={store}>
-                <div>{title}</div>
+                <div className="app">
+                    {title} - v{version}
+                </div>
             </Provider>
         );
     }

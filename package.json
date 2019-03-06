@@ -8,7 +8,7 @@
     "development": "webpack --config ./webpack.config.js --display-modules --mode development",
     "production": "webpack --config ./webpack.config.js --mode production",
     "lint": "./node_modules/.bin/tslint -c tslint.json 'src/**/*.ts'",
-    "format": "prettier --write --config ./prettierrc './src/**/*.ts'",
+    "format": "prettier --write --config ./prettierrc './src/**/*.ts' './src/**/*.tsx'",
     "formatTest": "prettier --write --config ./prettierrc './tests/**/*.ts'",
     "nyc": "nyc npm run test",
     "coverage": "npm run nyc && ./node_modules/.bin/nyc report --reporter=text-lcov > coverage.lcov && codecov",

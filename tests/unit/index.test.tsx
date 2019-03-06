@@ -3,24 +3,16 @@ import { expect } from 'chai';
 
 import * as Enzyme from 'enzyme';
 import * as Adapter from 'enzyme-adapter-react-16';
+import { App, AppState, AppProps } from "../../src/Component/";
 
 Enzyme.configure({ adapter: new Adapter() });
 
-class Foo extends React.Component<any, any> {
-    render() {
-        return <div>Foo</div>;
-    }
-}
-
-class MyComponent extends React.Component<any, any> {
-    render() {
-        return <div>Hello, {this.props.whoToGreet} <Foo/></div>;
-    }
-}
-
 describe('App component testing', function() {
     it('renders welcome message', function() {
-        const wrapper = Enzyme.shallow(<MyComponent />);
-        expect(wrapper.find(Foo)).to.have.lengthOf(1);
+        let component: Enzyme.ReactWrapper<AppProps, AppState>;
+        const title = "test";
+        component = Enzyme.mount(<App title={title}/>);
+        const text = component.find(".app").text();
+        expect(text).to.have.string(`${title} - v1`);
     });
 });
