@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { store } from "./Redux/App/store";
 import { Provider } from "react-redux";
 import "../style/index.scss";
-import { App } from "./App/App";
+import { App } from "./Component/";
 
 const title = "My Minimal React Webpack Babel Setup";
 const component = <App title={title} />;

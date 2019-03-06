@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { reducer as Registration } from "./Global/reducer";
+import { reducer as Global } from "./Global/reducer";
 export let reducer = combineReducers({
-    Registration
+    Global
 });
