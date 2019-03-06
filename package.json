@@ -12,7 +12,7 @@
     "formatTest": "prettier --write --config ./prettierrc './tests/**/*.ts'",
     "nyc": "nyc npm run test",
     "coverage": "npm run nyc && ./node_modules/.bin/nyc report --reporter=text-lcov > coverage.lcov && codecov",
-    "test": "./node_modules/.bin/mocha -r jsdom-global/register -r ts-node/register tests/**/*.test.ts tests/**/*.test.ts"
+    "test": "./node_modules/.bin/mocha -r jsdom-global/register -r ts-node/register tests/**/*.test.ts tests/**/*.test.tsx"
   },
   "dependencies": {
     "@babel/plugin-proposal-decorators": "^7.3.0",
