@@ -4,7 +4,10 @@ module.exports = function () {
             contentBase: './dist',
             hot: true,
             historyApiFallback: true,
-            port: 8000
+            port: 8000,
+            watchOptions: {
+                ignored: /node_modules/
+            }
         }
     });
 };
